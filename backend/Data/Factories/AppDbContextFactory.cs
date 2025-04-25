@@ -4,6 +4,7 @@ using Data.Models;
 
 namespace Data.Factories
 {
+//ChatGPT - för att kunna skapa dbcontext när man kör koden i ett klassbibliotek
     public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         public AppDbContext CreateDbContext(string[] args)
