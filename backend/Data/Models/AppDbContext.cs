@@ -23,6 +23,7 @@ namespace Data.Models
             modelBuilder.Entity<Kund>()
                 .HasKey(k => k.Kundnummer);
 
+            //ChatGPT - fyll databas med kund och tjänst då vi inte behöver göra det i frontend
             modelBuilder.Entity<Kund>().HasData(
                new Kund
                {
