@@ -15,11 +15,6 @@ namespace Data.Models
             modelBuilder.Entity<Projekt>()
                 .HasKey(p => p.Projektnummer);
 
-            //modelBuilder.Entity<Projekt>()
-            //    .HasOne(p => p.Kund)
-            //    .WithMany(k => k.Projekt)
-            //    .HasForeignKey(p => p.Kundnummer);
-
             modelBuilder.Entity<Projekt>()
                 .HasOne(p => p.Tjanst)
                 .WithMany(t => t.Projekt)
