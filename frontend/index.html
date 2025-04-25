@@ -1,0 +1,124 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projektlista</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Projektlista</h1>
+
+    <section id="projektListSection">
+      <button onclick="showCreateForm()">Skapa nytt projekt</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Projektnummer</th>
+            <th>Namn</th>
+            <th>Startdatum</th>
+            <th>Slutdatum</th>
+            <th>Projektansvarig</th>
+            <th>Status</th>
+            <th>Totalpris</th>
+            <th>Detaljer</th>
+          </tr>
+        </thead>
+        <tbody id="projektTable"></tbody>
+      </table>
+    </section>
+
+    <section id="projektDetailSection" class="hidden">
+      <h2>Projektdetaljer</h2>
+      <form id="projektForm">
+        <input type="hidden" id="projektnummer" />
+        <label>Namn: <input type="text" id="namn" /></label><br />
+        <label>Startdatum: <input type="date" id="startdatum" /></label><br />
+        <label>Slutdatum: <input type="date" id="slutdatum" /></label><br />
+        <label>Projektansvarig: <input type="text" id="projektansvarig" /></label><br />
+        <label
+          >Kund:
+          <select id="kundDropdown"></select></label
+        ><br />
+        <label
+          >Tjänst:
+          <select id="tjanstDropdown"></select></label
+        ><br />
+        <label>Antal timmar: <input type="number" id="antaltimmar" min="1" /></label><br />
+        <label>Totalpris: <input type="number" id="totalpris" /></label><br />
+        <label
+          >Status:
+          <select id="status">
+            <option value="EjPaborjad">Ej Paborjad</option>
+            <option value="Pagaende">Pågående</option>
+            <option value="Avslutad">Avslutad</option>
+          </select> </label
+        ><br />
+        <button type="button" onclick="updateProjekt()">Spara ändringar</button>
+        <button type="button" onclick="showProjektList()">Avbryt</button>
+      </form>
+    </section>
+
+    <section id="projektCreateSection" class="hidden">
+      <h2>Skapa nytt projekt</h2>
+      <form id="createProjektForm">
+        <label>Namn: <input type="text" id="newNamn" /></label><br />
+        <label>Startdatum: <input type="date" id="newStartdatum" /></label><br />
+        <label>Slutdatum: <input type="date" id="newSlutdatum" /></label><br />
+        <label>Projektansvarig: <input type="text" id="newProjektansvarig" /></label><br />
+        <label>Kund:<select id="newKundDropdown"></select></label><br />
+        <label>Tjänst:<select id="newTjanstDropdown"></select></label><br />
+        <label>Antal timmar: <input type="number" id="newAntalTimmar" min="1" /></label><br />
+        <label
+          >Status:
+          <select id="newStatus">
+            <option value="EjPaborjad">Ej Paborjad</option>
+            <option value="Pagaende">Pågående</option>
+            <option value="Avslutad">Avslutad</option>
+          </select> </label
+        ><br />
+        <button type="button" onclick="createProjekt()">Skapa</button>
+        <button type="button" onclick="showProjektList()">Avbryt</button>
+      </form>
+    </section>
+
+    <h1>Kunder</h1>
+    <section id="kundListSection">
+      <table>
+        <thead>
+          <tr>
+            <th>Kundnummer</th>
+            <th>Namn</th>
+            <th>Telefonnummer</th>
+          </tr>
+        </thead>
+        <tbody id="kundTable"></tbody>
+      </table>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
